@@ -1,1 +1,1153 @@
+<!DOCTYPE html>
+<html lang="bn">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Azim Ahmed Rafi</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: lightblue;
+    color: #222;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: darkblue;
+    padding: 15px 5px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+#darkBtn {
+    margin-left: 5px;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.card {
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px gray;
+}
+
+.welcome {
+    color: #20c957;
+    font-size: 29px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.profile {
+    width: 140px;
+    height: 140px;
+    margin: auto;
+    border-radius: 50%;
+    background: lightblue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 65px;
+}
+
+h1 {
+    color: #1769e0;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 20px;
+}
+
+h2 {
+    color: #20c957;
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    background: #555;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* PROJECTS */
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.project {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #1769e0;
+}
+
+.project h3 {
+    color: #1769e0;
+    font-size: 23px;
+    margin-top: 0;
+}
+
+.project p {
+    font-size: 16px;
+}
+
+.project-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* TODO LIST */
+
+.todo-box {
+    margin-top: 20px;
+    padding: 18px;
+    background: #eeeeee;
+    border-radius: 18px;
+}
+
+.todo-input {
+    display: flex;
+    gap: 8px;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 13px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.add-btn {
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 18px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.task-text {
+    flex: 1;
+    text-align: left;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.complete-btn {
+    background: #20c957;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/* CALCULATOR */
+
+.calculator {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eeeeee;
+    border-radius: 18px;
+}
+
+#display {
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 28px;
+    text-align: right;
+    background: white;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.calc-buttons button {
+    height: 58px;
+    border: none;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    background: lightblue;
+}
+
+.calc-buttons button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background: orange !important;
+}
+
+.clear {
+    background: red !important;
+    color: white;
+}
+
+.equal {
+    background: green !important;
+    color: white;
+}
+
+/* CONTACT */
+
+input,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+
+    border: 2px solid #ccc;
+    border-radius: 12px;
+
+    font-size: 17px;
+}
+
+textarea {
+    height: 130px;
+}
+
+.send {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 35px;
+    color: gray;
+}
+
+/* DARK MODE */
+
+.dark {
+    background: #181818;
+    color: white;
+}
+
+.dark .card {
+    background: #242424;
+    box-shadow: 0 10px 30px black;
+}
+
+.dark .project,
+.dark .calculator,
+.dark .todo-box {
+    background: #333;
+}
+
+.dark .subtitle {
+    color: #ccc;
+}
+
+.dark .project h3 {
+    color: #4da3ff;
+}
+
+.dark .task {
+    background: #444;
+    border-color: #555;
+}
+
+.dark #todoInput {
+    background: #333;
+    color: white;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- MENU -->
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#calculator">Calculator</a>
+
+<a href="#todo">To-Do</a>
+
+<a href="#contact">Contact</a>
+
+<button id="darkBtn" onclick="darkMode()">
+🌙 Dark
+</button>
+
+</nav>
+
+
+<div class="card" id="home">
+
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+🌐 আমার ওয়েবসাইটে<br>
+স্বাগতম
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+👨‍💻
+</div>
+
+
+<h1>
+Azim Ahmed Rafi
+</h1>
+
+
+<div class="subtitle">
+Web Development Student
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>
+👤 About Me
+</h2>
+
+<p>
+
+আমার নাম Azim Ahmed Rafi।
+
+আমি Web Development শিখছি।
+
+নতুন নতুন প্রযুক্তি শেখা এবং
+ওয়েবসাইট তৈরি করা আমার লক্ষ্য।
+
+</p>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>
+💻 My Skills
+</h2>
+
+
+<div class="skills">
+
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>
+🚀 My Projects
+</h2>
+
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3>
+🧮 Calculator
+</h3>
+
+<p>
+JavaScript দিয়ে তৈরি
+আমার Calculator Project।
+</p>
+
+<a href="#calculator" class="project-btn">
+Open Calculator
+</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>
+🌐 Portfolio Website
+</h3>
+
+<p>
+HTML, CSS এবং JavaScript
+দিয়ে তৈরি আমার Personal Website।
+</p>
+
+<a href="#home" class="project-btn">
+View Website
+</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>
+📝 To-Do List
+</h3>
+
+<p>
+JavaScript ব্যবহার করে
+Task List তৈরি করেছি।
+</p>
+
+<a href="#todo" class="project-btn">
+Open To-Do List
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section id="calculator">
+
+<h2>
+🧮 Calculator
+</h2>
+
+
+<div class="calculator">
+
+
+<input
+type="text"
+id="display"
+value="0"
+readonly
+>
+
+
+<div class="calc-buttons">
+
+
+<button
+class="clear"
+onclick="clearDisplay()">
+C
+</button>
+
+
+<button onclick="deleteNumber()">
+←
+</button>
+
+
+<button
+class="operator"
+onclick="pressOperator('%')">
+%
+</button>
+
+
+<button
+class="operator"
+onclick="pressOperator('/')">
+÷
+</button>
+
+
+<button onclick="pressNumber('7')">
+7
+</button>
+
+<button onclick="pressNumber('8')">
+8
+</button>
+
+<button onclick="pressNumber('9')">
+9
+</button>
+
+<button
+class="operator"
+onclick="pressOperator('*')">
+×
+</button>
+
+
+<button onclick="pressNumber('4')">
+4
+</button>
+
+<button onclick="pressNumber('5')">
+5
+</button>
+
+<button onclick="pressNumber('6')">
+6
+</button>
+
+<button
+class="operator"
+onclick="pressOperator('-')">
+−
+</button>
+
+
+<button onclick="pressNumber('1')">
+1
+</button>
+
+<button onclick="pressNumber('2')">
+2
+</button>
+
+<button onclick="pressNumber('3')">
+3
+</button>
+
+<button
+class="operator"
+onclick="pressOperator('+')">
++
+</button>
+
+
+<button onclick="pressNumber('0')">
+0
+</button>
+
+<button onclick="pressDecimal()">
+.
+</button>
+
+<button
+class="equal"
+onclick="calculate()">
+=
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TODO LIST -->
+
+<section id="todo">
+
+<h2>
+📝 To-Do List
+</h2>
+
+
+<div class="todo-box">
+
+
+<div class="todo-input">
+
+<input
+type="text"
+id="todoInput"
+placeholder="নতুন Task লিখুন..."
+>
+
+<button
+class="add-btn"
+onclick="addTask()">
+➕ Add
+</button>
+
+</div>
+
+
+<ul id="taskList"></ul>
+
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>
+📞 Contact Me
+</h2>
+
+
+<p>
+আমার সাথে যোগাযোগ করতে নিচের ফর্মটি পূরণ করুন।
+</p>
+
+
+<input
+type="text"
+id="name"
+placeholder="আপনার নাম"
+>
+
+
+<input
+type="email"
+id="email"
+placeholder="আপনার Email"
+>
+
+
+<textarea
+id="userMessage"
+placeholder="আপনার Message">
+</textarea>
+
+
+<br>
+<br>
+
+
+<button
+class="send"
+onclick="sendMessage()">
+
+📩 Send Message
+
+</button>
+
+
+<div id="message"></div>
+
+</section>
+
+
+<footer>
+
+© 2026 Azim Ahmed Rafi ❤️
+
+</footer>
+
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+
+/* CALCULATOR */
+
+let firstNumber = null;
+
+let currentOperator = null;
+
+let shouldResetDisplay = false;
+
+const display =
+document.getElementById("display");
+
+
+function pressNumber(number) {
+
+    if (
+        display.value === "Error" ||
+        shouldResetDisplay
+    ) {
+
+        display.value = number;
+
+        shouldResetDisplay = false;
+
+    }
+
+    else {
+
+        if (display.value === "0") {
+
+            display.value = number;
+
+        }
+
+        else {
+
+            display.value += number;
+
+        }
+
+    }
+
+}
+
+
+function pressDecimal() {
+
+    if (shouldResetDisplay) {
+
+        display.value = "0.";
+
+        shouldResetDisplay = false;
+
+        return;
+
+    }
+
+    if (!display.value.includes(".")) {
+
+        display.value += ".";
+
+    }
+
+}
+
+
+function pressOperator(operator) {
+
+    if (display.value === "Error") {
+        return;
+    }
+
+    if (
+        currentOperator !== null &&
+        !shouldResetDisplay
+    ) {
+
+        calculate();
+
+    }
+
+    firstNumber =
+    parseFloat(display.value);
+
+    currentOperator = operator;
+
+    shouldResetDisplay = true;
+
+}
+
+
+function calculate() {
+
+    if (
+        currentOperator === null ||
+        firstNumber === null
+    ) {
+        return;
+    }
+
+    let secondNumber =
+    parseFloat(display.value);
+
+    let result;
+
+
+    if (currentOperator === "+") {
+
+        result =
+        firstNumber + secondNumber;
+
+    }
+
+    else if (currentOperator === "-") {
+
+        result =
+        firstNumber - secondNumber;
+
+    }
+
+    else if (currentOperator === "*") {
+
+        result =
+        firstNumber * secondNumber;
+
+    }
+
+    else if (currentOperator === "/") {
+
+        if (secondNumber === 0) {
+
+            display.value = "Error";
+
+            firstNumber = null;
+            currentOperator = null;
+
+            return;
+
+        }
+
+        result =
+        firstNumber / secondNumber;
+
+    }
+
+    else if (currentOperator === "%") {
+
+        result =
+        firstNumber % secondNumber;
+
+    }
+
+
+    display.value =
+    Number(result.toFixed(10));
+
+    firstNumber = null;
+    currentOperator = null;
+    shouldResetDisplay = true;
+
+}
+
+
+function clearDisplay() {
+
+    display.value = "0";
+
+    firstNumber = null;
+    currentOperator = null;
+    shouldResetDisplay = false;
+
+}
+
+
+function deleteNumber() {
+
+    if (
+        display.value === "Error" ||
+        shouldResetDisplay
+    ) {
+
+        display.value = "0";
+
+        shouldResetDisplay = false;
+
+        return;
+
+    }
+
+    if (display.value.length > 1) {
+
+        display.value =
+        display.value.slice(0, -1);
+
+    }
+
+    else {
+
+        display.value = "0";
+
+    }
+
+}
+
+
+/* TODO LIST */
+
+function addTask() {
+
+    const input =
+    document.getElementById("todoInput");
+
+    const taskText =
+    input.value.trim();
+
+
+    if (taskText === "") {
+
+        alert("⚠️ আগে একটি Task লিখুন!");
+
+        return;
+
+    }
+
+
+    const li =
+    document.createElement("li");
+
+    li.className = "task";
+
+
+    const span =
+    document.createElement("span");
+
+    span.className = "task-text";
+
+    span.textContent = taskText;
+
+
+    const completeBtn =
+    document.createElement("button");
+
+    completeBtn.className =
+    "complete-btn";
+
+    completeBtn.textContent = "✅";
+
+    completeBtn.onclick = function() {
+
+        span.classList.toggle("completed");
+
+    };
+
+
+    const deleteBtn =
+    document.createElement("button");
+
+    deleteBtn.className =
+    "delete-btn";
+
+    deleteBtn.textContent = "🗑️";
+
+    deleteBtn.onclick = function() {
+
+        li.remove();
+
+    };
+
+
+    li.appendChild(span);
+
+    li.appendChild(completeBtn);
+
+    li.appendChild(deleteBtn);
+
+
+    document
+    .getElementById("taskList")
+    .appendChild(li);
+
+
+    input.value = "";
+
+    input.focus();
+
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("todoInput")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        addTask();
+
+    }
+
+});
+
+
+/* DARK MODE */
+
+function darkMode() {
+
+    document.body.classList.toggle("dark");
+
+    const button =
+    document.getElementById("darkBtn");
+
+
+    if (
+        document.body.classList.contains("dark")
+    ) {
+
+        button.innerHTML = "☀️ Light";
+
+    }
+
+    else {
+
+        button.innerHTML = "🌙 Dark";
+
+    }
+
+}
+
+
+/* CONTACT */
+
+function sendMessage() {
+
+    const name =
+    document.getElementById("name").value.trim();
+
+    const email =
+    document.getElementById("email").value.trim();
+
+    const userMessage =
+    document.getElementById("userMessage").value.trim();
+
+    const message =
+    document.getElementById("message");
+
+
+    if (
+        name === "" ||
+        email === "" ||
+        userMessage === ""
+    ) {
+
+        message.innerHTML =
+        "⚠️ দয়া করে সব ঘর পূরণ করুন।";
+
+        message.style.color = "red";
+
+    }
+
+    else {
+
+        message.innerHTML =
+        "✅ ধন্যবাদ! আপনার মেসেজ গ্রহণ করা হয়েছে।";
+
+        message.style.color = "green";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
